@@ -25,6 +25,12 @@ int main(void)
     {
         perror("获取摄像头支持格式失败");
     }
+    printf("flags=%d\n", v4fmt.flags);
+    printf("description=%s\n", v4fmt.description);
+    unsigned char *p = (unsigned char *)&v4fmt.pixelformat;
+    printf("pixelformat=%c%c%c%c\n", p[0], p[1], p[2], p[3]);
+    printf("reserved=%d\n", v4fmt.reserved[0]);
+
     // 9.关闭设备
     close(fd);
     return 0;
